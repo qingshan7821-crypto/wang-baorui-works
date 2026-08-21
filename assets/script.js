@@ -6,6 +6,7 @@
 
   const { profile, works } = config;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const resolveAsset = (path) => new URL(path, document.baseURI).href;
 
   document.querySelectorAll("[data-profile-name]").forEach((node) => {
     node.textContent = profile.name;
@@ -28,7 +29,7 @@
   });
 
   const portrait = document.querySelector("#about-portrait");
-  portrait.style.setProperty("--portrait", `url(\"${profile.portrait}\")`);
+  portrait.style.setProperty("--portrait", `url(\"${resolveAsset(profile.portrait)}\")`);
 
   const resume = document.querySelector("#resume-link");
   resume.href = profile.resume;
@@ -44,7 +45,7 @@
 
   const featured = works.find((work) => work.featured) || works[0];
   const featuredPoster = document.querySelector("#featured-poster");
-  featuredPoster.style.setProperty("--poster", `url(\"${featured.poster}\")`);
+  featuredPoster.style.setProperty("--poster", `url(\"${resolveAsset(featured.poster)}\")`);
   featuredPoster.style.setProperty("--accent", featured.accent);
   document.querySelector("#featured-title").textContent = featured.title;
   document.querySelector("#featured-category").textContent = "视频作品";
@@ -59,7 +60,7 @@
       const originalIndex = works.indexOf(work);
       const card = document.createElement("article");
       card.className = "work-card reveal visible";
-      card.style.setProperty("--poster", `url(\"${work.poster}\")`);
+      card.style.setProperty("--poster", `url(\"${resolveAsset(work.poster)}\")`);
       card.style.setProperty("--accent", work.accent);
 
       const button = document.createElement("button");
@@ -138,10 +139,10 @@
     document.querySelector("#dialog-type").textContent = work.type;
 
     const media = document.querySelector("#dialog-media");
-    media.style.setProperty("--poster", `url(\"${work.poster}\")`);
+    media.style.setProperty("--poster", `url(\"${resolveAsset(work.poster)}\")`);
     media.style.setProperty("--accent", work.accent);
-    dialogVideo.poster = work.poster;
-    dialogVideo.src = work.video;
+    dialogVideo.poster = resolveAsset(work.poster);
+    dialogVideo.src = resolveAsset(work.video);
     dialogVideo.load();
     dialog.showModal();
   }
