@@ -12,9 +12,6 @@ window.PORTFOLIO_CONFIG = {
     ],
     contact: {
       phone: "17740507389",
-      bilibiliLabel: "BILIBILI",
-      bilibiliText: "不列颠的小骑士",
-      bilibiliUrl: "https://space.bilibili.com/1490275569",
     },
     experience: [
       {
@@ -79,7 +76,7 @@ window.PORTFOLIO_CONFIG = {
     },
     {
       id: "work-03",
-      title: "云阶",
+      title: "测试动画",
       type: "国风幻想 / 视觉实验",
       role: "概念设定 · 生成 · 节奏设计",
       summary: "在云海、古建与长阶之间建立宏大的东方幻想空间，探索 AI 生成影像中的纵深、氛围与电影式调度。",
