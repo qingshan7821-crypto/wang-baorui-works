@@ -41,9 +41,17 @@ test("uses the current phone number and resume-derived professional profile", ()
   const { profile } = loadPortfolioConfig();
 
   assert.equal(profile.contact.phone, "17740507389");
+  assert.deepEqual(Object.keys(profile.contact), ["phone"]);
   assert.match(profile.bio, /AIGC/);
   assert.ok(profile.experience.length >= 3);
   assert.ok(profile.skills.length >= 6);
+});
+
+test("uses the approved display title for the animation test film", () => {
+  const { works } = loadPortfolioConfig();
+  const animationTest = works.find((work) => work.bvid === "BV15st861Exc");
+
+  assert.equal(animationTest?.title, "测试动画");
 });
 
 test("builds a non-autoplay Bilibili player URL from a BV id", () => {
