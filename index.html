@@ -16,10 +16,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/images/work-01.jpg" />
     <title>王宝瑞｜AIGC 影像作品集</title>
-    <link rel="stylesheet" href="assets/styles.css" />
-    <script src="assets/site-config.js" defer></script>
+    <link rel="stylesheet" href="assets/styles.css?v=4" />
+    <script src="assets/site-config.js?v=4" defer></script>
     <script src="assets/bilibili-player.js" defer></script>
-    <script src="assets/script.js?v=3" defer></script>
+    <script src="assets/script.js?v=4" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳到主要内容</a>
@@ -27,8 +27,18 @@
 
     <header class="site-header" id="top">
       <a class="brand" href="#home" aria-label="返回首页">
-        <span class="brand-reel" aria-hidden="true">
-          <i></i><i></i><i></i>
+        <span class="brand-camera" aria-hidden="true">
+          <svg viewBox="0 0 72 52" focusable="false">
+            <path class="brand-camera-handle" d="M12 13h18l4-6h18l5 6h5v8H12z" />
+            <rect class="brand-camera-body" x="6" y="16" width="58" height="30" rx="9" />
+            <circle class="brand-camera-lens-ring" cx="28" cy="31" r="12" />
+            <circle class="brand-camera-lens" cx="28" cy="31" r="7" />
+            <circle class="brand-camera-eye" cx="47" cy="28" r="1.6" />
+            <circle class="brand-camera-eye" cx="54" cy="28" r="1.6" />
+            <path class="brand-camera-smile" d="M47 34c2 2 5 2 7 0" />
+            <circle class="brand-camera-tally" cx="58" cy="12" r="3" />
+            <text class="brand-camera-label" x="43" y="42">FX3</text>
+          </svg>
         </span>
         <span>
           <strong data-profile-name>王宝瑞</strong>
@@ -124,19 +134,6 @@
         </div>
       </section>
 
-      <section class="craft section" aria-labelledby="craft-title">
-        <div class="craft-heading reveal">
-          <p class="eyebrow"><span>03</span> FROM PROMPT TO FINAL CUT</p>
-          <h2 id="craft-title">从一个想法，<br />到一段完整影像。</h2>
-        </div>
-        <div class="craft-content reveal reveal--delay">
-          <p>
-            创意不是生成按钮的一次点击，而是从叙事拆解、画面设计、反复筛选到最终剪辑的连续判断。
-          </p>
-          <div class="skill-list" id="skill-list"></div>
-        </div>
-      </section>
-
       <section class="statement section" aria-label="创作理念">
         <p class="statement-label">ARTIST STATEMENT / 2026</p>
         <blockquote class="reveal">
@@ -148,7 +145,7 @@
 
       <section class="about section" id="about" aria-labelledby="about-title">
         <aside class="about-aside reveal">
-          <p class="eyebrow"><span>04</span> PROFILE / RESUME</p>
+          <p class="eyebrow"><span>03</span> PROFILE / RESUME</p>
           <div class="monogram" aria-hidden="true" data-profile-initials>WBR</div>
           <p class="about-aside-note">
             AIGC VIDEO CREATOR<br />
@@ -177,7 +174,7 @@
 
       <section class="contact section" id="contact" aria-labelledby="contact-title">
         <div class="contact-top reveal">
-          <p class="eyebrow"><span>05</span> CONTACT / COLLABORATION</p>
+          <p class="eyebrow"><span>04</span> CONTACT / COLLABORATION</p>
           <p>项目合作、工作机会或作品交流</p>
         </div>
 
@@ -187,17 +184,6 @@
             <a class="contact-row" id="phone-link" href="tel:17740507389">
               <span>PHONE</span>
               <strong id="phone-text">17740507389</strong>
-              <i aria-hidden="true">↗</i>
-            </a>
-            <a
-              class="contact-row"
-              id="bilibili-link"
-              href="https://space.bilibili.com/1490275569"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span id="bilibili-label">BILIBILI</span>
-              <strong id="bilibili-text">不列颠的小骑士</strong>
               <i aria-hidden="true">↗</i>
             </a>
           </div>
