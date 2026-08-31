@@ -147,6 +147,94 @@ iframe {
   letter-spacing: 0.16em;
 }
 
+.brand-camera {
+  display: block;
+  width: 3rem;
+  height: 2.35rem;
+  filter: drop-shadow(0 0.35rem 0.5rem rgba(0, 0, 0, 0.28));
+  transform-origin: 50% 80%;
+  animation: camera-bob 3.2s ease-in-out infinite;
+}
+
+.brand-camera svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.brand-camera-body,
+.brand-camera-handle {
+  fill: #dad4c8;
+  stroke: #070707;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.brand-camera-handle {
+  fill: #aaa397;
+}
+
+.brand-camera-lens-ring {
+  fill: #242424;
+  stroke: #070707;
+  stroke-width: 2;
+}
+
+.brand-camera-lens {
+  fill: #5e6874;
+  stroke: #96a4b2;
+  stroke-width: 1.5;
+}
+
+.brand-camera-eye {
+  fill: #070707;
+}
+
+.brand-camera-smile {
+  fill: none;
+  stroke: #070707;
+  stroke-linecap: round;
+  stroke-width: 1.5;
+}
+
+.brand-camera-tally {
+  fill: var(--red);
+  animation: camera-tally 1.6s ease-in-out infinite;
+}
+
+.brand-camera-label {
+  fill: #37332f;
+  font-family: var(--sans);
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+@keyframes camera-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-0.16rem) rotate(1deg);
+  }
+}
+
+@keyframes camera-tally {
+  0%,
+  45%,
+  100% {
+    opacity: 1;
+  }
+
+  60%,
+  82% {
+    opacity: 0.25;
+  }
+}
+
 .brand-reel {
   position: relative;
   display: grid;
@@ -584,7 +672,6 @@ iframe {
 }
 
 .section-heading h2,
-.craft h2,
 .about h2,
 .contact h2 {
   margin: 0;
@@ -615,29 +702,12 @@ iframe {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: clamp(2rem, 4vw, 4.5rem) clamp(1.2rem, 2.7vw, 2.8rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(3.5rem, 7vw, 7rem);
 }
 
 .work-card {
   min-width: 0;
-  grid-column: span 6;
-}
-
-.work-card:nth-child(1) {
-  grid-column: span 8;
-}
-
-.work-card:nth-child(2) {
-  grid-column: span 4;
-}
-
-.work-card:nth-child(3) {
-  grid-column: span 4;
-}
-
-.work-card:nth-child(4) {
-  grid-column: span 8;
 }
 
 .work-card-button {
@@ -790,65 +860,6 @@ iframe {
   color: var(--paper-dim);
   font-size: 0.76rem;
   line-height: 1.8;
-}
-
-.craft {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: clamp(3rem, 8vw, 9rem);
-  padding-top: clamp(6rem, 10vw, 10rem);
-  padding-bottom: clamp(6rem, 10vw, 10rem);
-  border-top: 1px solid var(--line);
-  background:
-    linear-gradient(130deg, rgba(189, 74, 42, 0.1), transparent 35%),
-    var(--ink-soft);
-}
-
-.craft h2 {
-  font-size: clamp(3rem, 6vw, 6rem);
-}
-
-.craft-content {
-  padding-top: 4rem;
-}
-
-.craft-content > p {
-  max-width: 34rem;
-  margin: 0 0 2.6rem;
-  color: var(--paper-dim);
-  font-family: var(--serif);
-  font-size: clamp(1.1rem, 1.8vw, 1.55rem);
-  line-height: 1.8;
-}
-
-.skill-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
-}
-
-.skill-list span {
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--line);
-  color: #d4cfc4;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-}
-
-.skill-list span:nth-child(odd) {
-  padding-right: 1rem;
-}
-
-.skill-list span:nth-child(even) {
-  padding-left: 1rem;
-  border-left: 1px solid var(--line);
-}
-
-.skill-list i {
-  margin-right: 0.7rem;
-  color: var(--red);
-  font-style: normal;
-  font-size: 0.58rem;
 }
 
 .statement {
@@ -1340,22 +1351,6 @@ iframe {
 }
 
 @media (max-width: 900px) {
-  .work-card,
-  .work-card:nth-child(1),
-  .work-card:nth-child(2),
-  .work-card:nth-child(3),
-  .work-card:nth-child(4) {
-    grid-column: span 6;
-  }
-
-  .craft {
-    grid-template-columns: 1fr;
-  }
-
-  .craft-content {
-    padding-top: 0;
-  }
-
   .about {
     grid-template-columns: 1fr;
   }
@@ -1393,17 +1388,9 @@ iframe {
     padding-left: 1rem;
   }
 
-  .brand-reel {
-    width: 1.9rem;
-    height: 1.9rem;
-  }
-
-  .brand-reel i {
-    top: 0.23rem;
-    left: 0.73rem;
-    width: 0.4rem;
-    height: 0.4rem;
-    transform-origin: 0.22rem 0.73rem;
+  .brand-camera {
+    width: 2.7rem;
+    height: 2.1rem;
   }
 
   .nav-toggle {
@@ -1517,7 +1504,6 @@ iframe {
   }
 
   .section-heading h2,
-  .craft h2,
   .about h2,
   .contact h2 {
     font-size: clamp(3rem, 15vw, 5rem);
@@ -1542,15 +1528,6 @@ iframe {
 
   .work-meta strong {
     font-size: 1.55rem;
-  }
-
-  .skill-list {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-list span:nth-child(even) {
-    padding-left: 0;
-    border-left: 0;
   }
 
   .statement {
