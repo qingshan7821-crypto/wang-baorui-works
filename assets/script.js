@@ -33,13 +33,6 @@
     details.append(row);
   });
 
-  const skills = document.querySelector("#skill-list");
-  profile.skills.forEach((skill, index) => {
-    const item = document.createElement("span");
-    item.innerHTML = `<i>${String(index + 1).padStart(2, "0")}</i> ${skill}`;
-    skills.append(item);
-  });
-
   const experienceList = document.querySelector("#experience-list");
   profile.experience.forEach((experience) => {
     const item = document.createElement("article");
@@ -65,11 +58,6 @@
   phoneLink.href = `tel:${profile.contact.phone}`;
   document.querySelector("#phone-text").textContent = profile.contact.phone;
 
-  const bilibiliLink = document.querySelector("#bilibili-link");
-  bilibiliLink.href = profile.contact.bilibiliUrl;
-  document.querySelector("#bilibili-label").textContent = profile.contact.bilibiliLabel;
-  document.querySelector("#bilibili-text").textContent = profile.contact.bilibiliText;
-
   const featured = works.find((work) => work.featured) || works[0];
   const featuredPoster = document.querySelector("#featured-play");
   featuredPoster.style.setProperty("--poster", `url("${resolveAsset(featured.poster)}")`);
@@ -83,8 +71,7 @@
   grid.replaceChildren();
   works.forEach((work, index) => {
     const card = document.createElement("article");
-    const sizeClass = index === 0 ? " work-card--lead" : index === 3 ? " work-card--wide" : "";
-    card.className = `work-card reveal visible${sizeClass}`;
+    card.className = "work-card reveal visible";
     card.style.setProperty("--poster", `url("${resolveAsset(work.poster)}")`);
     card.style.setProperty("--accent", work.accent);
 
