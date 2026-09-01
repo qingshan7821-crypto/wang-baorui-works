@@ -20,6 +20,7 @@
   document.querySelector("[data-profile-tagline]").textContent = profile.tagline;
   document.querySelector("[data-profile-bio]").textContent = profile.bio;
   document.querySelector("#works-count").textContent = String(works.length).padStart(2, "0");
+  document.querySelector("#hero-works-count").textContent = works.length;
   document.querySelector("#copyright-year").textContent = new Date().getFullYear();
 
   const details = document.querySelector("#about-details");

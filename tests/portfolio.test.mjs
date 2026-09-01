@@ -16,25 +16,38 @@ function loadPortfolioConfig() {
   return sandbox.window.PORTFOLIO_CONFIG;
 }
 
-test("publishes only the six current Bilibili portfolio films", () => {
+test("publishes the seven selected Bilibili portfolio films", () => {
   const config = loadPortfolioConfig();
   const expectedBvids = [
+    "BV1citg6qELa",
+    "BV1katg6uEdk",
     "BV15Wt86jE85",
     "BV1eWt86jEXY",
-    "BV15st861Exc",
     "BV15st861E7H",
     "BV1dnt86EEQH",
     "BV1Lnt86EE17",
   ].sort();
 
-  assert.equal(config.works.length, 6);
+  assert.equal(config.works.length, 7);
   assert.deepEqual(
     Array.from(config.works, (work) => work.bvid).sort(),
     expectedBvids,
   );
+  assert.equal(config.works.some((work) => work.bvid === "BV15st861Exc"), false);
   assert.equal(config.works.some((work) => work.bvid === "BV1fL4y1e7KW"), false);
-  assert.equal(new Set(config.works.map((work) => work.bvid)).size, 6);
+  assert.equal(new Set(config.works.map((work) => work.bvid)).size, 7);
   assert.ok(config.works.every((work) => work.poster && work.duration && work.summary));
+});
+
+test("places the two newest publications first and features the newest film", () => {
+  const { works } = loadPortfolioConfig();
+
+  assert.deepEqual(
+    Array.from(works.slice(0, 2), (work) => work.bvid),
+    ["BV1citg6qELa", "BV1katg6uEdk"],
+  );
+  assert.equal(works[0].featured, true);
+  assert.equal(works.filter((work) => work.featured).length, 1);
 });
 
 test("uses the current phone number and resume-derived professional profile", () => {
@@ -47,11 +60,13 @@ test("uses the current phone number and resume-derived professional profile", ()
   assert.ok(profile.skills.length >= 6);
 });
 
-test("uses the approved display title for the animation test film", () => {
+test("uses clean portfolio titles for the two new publications", () => {
   const { works } = loadPortfolioConfig();
-  const animationTest = works.find((work) => work.bvid === "BV15st861Exc");
+  const professorFilm = works.find((work) => work.bvid === "BV1citg6qELa");
+  const drawingBoardFilm = works.find((work) => work.bvid === "BV1katg6uEdk");
 
-  assert.equal(animationTest?.title, "测试动画");
+  assert.equal(professorFilm?.title, "我要问教授｜测试 3");
+  assert.equal(drawingBoardFilm?.title, "画板测试");
 });
 
 test("builds a non-autoplay Bilibili player URL from a BV id", () => {
